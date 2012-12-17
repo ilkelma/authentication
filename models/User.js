@@ -14,8 +14,6 @@
 
   MyUser = db.mongoose.model('User', UserSchema);
 
-  module.exports.addUser = addUser;
-
   addUser = function(username, password, callback) {
     var instance;
     instance = new MyUser();
@@ -29,5 +27,7 @@
       }
     });
   };
+
+  module.exports.addUser = addUser;
 
 }).call(this);

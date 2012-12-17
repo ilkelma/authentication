@@ -55,5 +55,14 @@ app.post('/signup', function(req, res) {
   });  
 });
 
-app.listen(3000);
+//Check if we're running in Cloud9
+function portNum() {
+   if(process.env.C9_PID) {
+    return process.env.PORT;
+    } else {
+    return 3000;
+    }
+}
+
+app.listen(portNum());
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
